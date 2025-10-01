@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'fabric-loom' version '1.11-SNAPSHOT'
 }
 
 version = project.modVersion
@@ -38,7 +38,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.fabricLoaderVersion}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabricApiVersion}"
 
-    modImplementation "com.terraformersmc:modmenu:${project.fabricModMenuVersion}"
+    modCompileOnly "com.terraformersmc:modmenu:${project.fabricModMenuVersion}"
 }
 
 processResources {
