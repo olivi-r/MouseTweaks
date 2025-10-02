@@ -15,7 +15,7 @@ import yalter.mousetweaks.MouseButton;
 @Mixin(MouseHandler.class)
 public abstract class MixinMouseHandler {
     @WrapOperation(method = "handleAccumulatedMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/Screen;mouseDragged(Lnet/minecraft/client/input/MouseButtonEvent;DD)Z"))
-    private boolean onMouseDragged(Screen screen, MouseButtonEvent mouseButtonEvent, double d, double e, Operation<Boolean> operation) {
+    private boolean onMouseDragged(Screen screen, MouseButtonEvent mouseButtonEvent, double dx, double dy, Operation<Boolean> operation) {
         MouseButton button = MouseButton.fromEventButton(mouseButtonEvent.button());
         if (button != null) {
             if (Main.onMouseDrag(screen, mouseButtonEvent.x(), mouseButtonEvent.y(), button)) {
@@ -23,6 +23,6 @@ public abstract class MixinMouseHandler {
             }
         }
 
-		return operation.call(screen, mouseButtonEvent, d, e);
+		return operation.call(screen, mouseButtonEvent, dx, dy);
 	}
 }
